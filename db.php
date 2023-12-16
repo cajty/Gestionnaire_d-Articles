@@ -3,7 +3,7 @@ class Db {
     protected $dbConn;
     public $dbHost = "localhost";
     public $dbUser = "root";
-    public $dbPass = "fegregeg";
+    public $dbPass = "";
     public $dbName = "artec";
 
     function connect() {
@@ -24,3 +24,4 @@ class Db {
 
 
 ?>
+
