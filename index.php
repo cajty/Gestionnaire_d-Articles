@@ -13,7 +13,7 @@
 <body>
   <div class="container mt-5">
     <h1>Create Article</h1>
-    <form action="articl.php" method="post">
+    <form action="crud/insert.php" method="post">
 
 
       <div class="form-group">
@@ -27,7 +27,7 @@
       </div>
 
 
-      <button type="submit" class="btn btn-primary" name="submit">Create</button>
+      <button type="submit" class="btn btn-primary" name="submit_form">Create</button>
     </form>
   </div>
   <div class="container m-5">
@@ -55,8 +55,9 @@
       <td>$row[titre]</td>
       <td>$row[contenu]</td>
       <td>$row[date_de_creation]</td>
-      <a class ='btn btn-danger btn-sm 'href =\"delete.php?id=$row[id]\"onClick=\"
-          return confirm('Are you sure you want to delete?')\" >Delete</a>
+      <td>
+      <a class ='btn btn-primary btn-sm ' href =\"crud/update.php?id=$row[id]\" >Edit</a>
+      <a class ='btn btn-danger btn-sm 'href =\"crud/delet.php?id=$row[id]\"onClick=\"return confirm('Are you sure you want to delete?')\" >Delete</a>
           </td>
     
       </tr>";

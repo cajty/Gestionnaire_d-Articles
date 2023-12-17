@@ -35,16 +35,15 @@ class Article extends Db {
         // Implementation for afincherArticle method
     }
 
-    public function modifierArticle($tit, $cont, $use, $articleId) {
+    public function modifierArticle($tit, $cont, $articleId) {
         $this->titre = $tit;
         $this->contenu = $cont;
-        $this->userId = $use;
+        
 
         $con = $this->connect();
-        $sql = $con->prepare("UPDATE `articles` SET `titre` = :a, `contenu` = :b WHERE `user_id` = :c AND `id` = :d");
+        $sql = $con->prepare("UPDATE `articles` SET `titre` = :a, `contenu` = :b WHERE  `id` = :d");
         $sql->bindParam(':a', $this->titre);
         $sql->bindParam(':b', $this->contenu);
-        $sql->bindParam(':c', $this->userId);
         $sql->bindParam(':d', $articleId);
 
         $sql->execute();
@@ -61,14 +60,7 @@ class Article extends Db {
         
     }
 }
- if(isset($_POST['submit'])){
-  $titre = $_POST['titre'];
-$contenu = $_POST['contenu'];
-  $art = new Article();
- $art->insert($titre, $contenu, 3);
 
- header("Location:index.php");
- }
   ?>
  
 
