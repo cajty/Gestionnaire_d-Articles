@@ -1,18 +1,11 @@
 <?php
-include("person.php"); 
-class  Users extends Prense  {
+include("db.php"); 
+class  Users extends Db   {
    
    
   
     public function insert($firstname,$lastname,$username,$paword,$email,$roleId) {
      
-      $this->firstname = $firstname;
-      $this->lastname = $lastname; 
-      $this->username = $username;
-      $this->paword = $paword;
-      $this->email = $email;
-      $this->roleId = $roleId; 
-  
         // Implementation for afincher method
         $sql = $this->connect()->prepare("INSERT INTO `utilisateurs`( `firstname`, `lastname`, `username`, `paword`, `email`, `role_id`)
     VALUES (:a,:b,:c,:d,:e,:f)");

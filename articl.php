@@ -2,22 +2,16 @@
 include("db.php");
 
 class Article extends Db {
-    public $id;
-    public $titre;
-    public $contenu;
-    public $dateCreation;
-    public $userId;
+   
 
     public function insert($tit, $cont, $use) {
-        $this->titre = $tit;
-        $this->contenu = $cont;
-        $this->userId = $use;
+     
         $con = $this->connect();
 
         $sql = $con->prepare("INSERT INTO `articles`(`titre`, `contenu`, `user_id`) VALUES (:a, :b, :c)");
-        $sql->bindParam(':a', $this->titre);
-        $sql->bindParam(':b', $this->contenu);
-        $sql->bindParam(':c', $this->userId);
+        $sql->bindParam(':a', $tit);
+        $sql->bindParam(':b', $cont);
+        $sql->bindParam(':c', $use);
 
         $sql->execute();
         $this->dbConn = null;
@@ -34,16 +28,13 @@ class Article extends Db {
 
         // Implementation for afincherArticle method
     }
+  
 
-    public function modifierArticle($tit, $cont, $articleId) {
-        $this->titre = $tit;
-        $this->contenu = $cont;
-        
-
+    public function modifierArticle($tit, $cont, int  $articleId) {
         $con = $this->connect();
         $sql = $con->prepare("UPDATE `articles` SET `titre` = :a, `contenu` = :b WHERE  `id` = :d");
-        $sql->bindParam(':a', $this->titre);
-        $sql->bindParam(':b', $this->contenu);
+        $sql->bindParam(':a', $tit);
+        $sql->bindParam(':b', $cont);
         $sql->bindParam(':d', $articleId);
 
         $sql->execute();

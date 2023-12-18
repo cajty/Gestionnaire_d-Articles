@@ -1,10 +1,10 @@
 <?php
 class Db {
     protected $dbConn;
-    public $dbHost = "localhost";
-    public $dbUser = "root";
-    public $dbPass = "";
-    public $dbName = "artec";
+    protected $dbHost = "localhost";
+    protected $dbUser = "root";
+    protected $dbPass = "";
+    protected $dbName = "artec";
 
     function connect() {
         try {
