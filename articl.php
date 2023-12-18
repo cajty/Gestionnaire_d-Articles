@@ -26,7 +26,7 @@ class Article extends Db {
       return $arr;
      
 
-        // Implementation for afincherArticle method
+     
     }
   
 
