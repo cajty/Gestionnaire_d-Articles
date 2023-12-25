@@ -2,7 +2,7 @@ CREATE TABLE roles (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(30),
     description VARCHAR (255)
-);
+)engine = innodb;
 CREATE TABLE utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     firstname VARCHAR(30),
@@ -14,7 +14,7 @@ CREATE TABLE utilisateurs (
     Foreign Key (role_id) REFERENCES roles (id),
     phone VARCHAR(30),
     cin VARCHAR (30)
-);
+)engine = innodb;;
 CREATE TABLE Articles (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(30) NOT NULL,
@@ -22,4 +22,4 @@ CREATE TABLE Articles (
     date_de_creation TIMESTAMP DEFAULT NOW(),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES utilisateurs (id)
-);
+)engine = innodb;;
